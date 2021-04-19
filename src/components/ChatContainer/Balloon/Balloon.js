@@ -3,29 +3,39 @@ import propTypes from 'prop-types';
 import { forwardRef, useMemo } from 'react';
 
 const StyledBalloonContainer = styled.div`
-  margin: 1em 1em 1.2em 1em;
+  margin: 0.5em;
   color: #f2f2f2;
 
+  // 왼쪽 말풍선
   ${props => props.type === "left" &&
     css`
-      & span {
+      & div {
         background-color: #567ace; // TODO: 변수 입력
       }
     `
   }
 
+  // 오른쪽 말풍선
   ${props => props.type === "right" &&
     css`
-      text-align: right;
+      text-align: -webkit-right;
       
-      & span {
+      & div {
         background-color: #db706c; // TODO: 변수 입력
       }
     `
   }
+
+  & div {
+    max-width: 70%;
+    width: max-content;
+    text-align: left;
+    word-break: break-all;
+  }
+
 `;
 
-const StyledBalloon = styled.span`
+const StyledBalloon = styled.div`
   border: 1px solid transparent;
   border-radius: 0.5em;
   padding: 0.4em 0.5em;
