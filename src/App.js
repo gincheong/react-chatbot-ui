@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import propTypes from 'prop-types'
+import React from 'react';
+import { ChatContainer, InputBox } from 'components';
+import { ChatContextProvider } from 'context';
 
-function App() {
+const StyledApp = styled.main`
+  // TODO: 여기 고정수치 입력받도록 바꾸기
+  width: ${props => `${props.width ?? '400'}px` };
+  height: ${props => `${props.height ?? '600'}px` };
+  display: flex;
+  flex-direction: column;
+`;
+
+export const App = (props) => {
+  // ?: 프로바이더로 감싸는 부분 너무 못생김
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledApp width={props.width} height={props.height}>
+      {ChatContextProvider(
+        <>
+        <ChatContainer />
+        <InputBox />
+        </>
+      )}
+    </StyledApp>
   );
-}
+};
 
-export default App;
+App.propTypes = {
+  width: propTypes.number,
+  height: propTypes.number
+};
