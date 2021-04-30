@@ -1,8 +1,17 @@
+import React, { forwardRef, useMemo } from 'react';
 import styled, { css } from 'styled-components';
-import propTypes from 'prop-types';
-import { forwardRef, useMemo } from 'react';
+import { Message } from 'shared/models';
 
-const StyledBalloonContainer = styled.div`
+interface StyleProps {
+  type: Message['type']; // ?: member 이름이 달라지면 직접 수정해야 함
+}
+
+interface Props extends StyleProps {
+  type: Message['type'];
+  text: Message['text'];
+}
+
+const StyledBalloonContainer = styled.div<StyleProps>`
   margin: 0.5em;
   color: #f2f2f2;
 
@@ -14,7 +23,6 @@ const StyledBalloonContainer = styled.div`
       }
     `
   }
-
   // 오른쪽 말풍선
   ${props => props.type === "right" &&
     css`
@@ -32,7 +40,6 @@ const StyledBalloonContainer = styled.div`
     text-align: left;
     word-break: break-all;
   }
-
 `;
 
 const StyledBalloon = styled.div`
@@ -41,8 +48,8 @@ const StyledBalloon = styled.div`
   padding: 0.4em 0.5em;
 
 `;
-
-export const Balloon = forwardRef((props, ref) => {
+  
+  export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return useMemo(() => 
     <StyledBalloonContainer type={props.type} ref={ref}>
       <StyledBalloon>{props.text}</StyledBalloon>
@@ -50,7 +57,3 @@ export const Balloon = forwardRef((props, ref) => {
   , [props.text, props.type, ref]); // ?: 로직상으로는 빈 배열 넣어도 됨, 다만 warning 발생함
 });
 
-Balloon.propTypes = {
-  type: propTypes.oneOf(['left', 'right']).isRequired,
-  text: propTypes.string,
-};
