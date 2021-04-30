@@ -49,7 +49,7 @@ const StyledBalloon = styled.div`
 
 `;
   
-  export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
+export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return useMemo(() => 
     <StyledBalloonContainer type={props.type} ref={ref}>
       <StyledBalloon>{props.text}</StyledBalloon>
