@@ -28,3 +28,5 @@ demo
 .babelrc
 webpack.config.js
 public
+env
+.vscode
