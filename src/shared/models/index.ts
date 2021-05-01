@@ -1,1 +1,6 @@
-export type { Message, MessageList } from './MessageModel';
+export type {
+  Message,
+  MessageWithImage,
+  MessageWithText,
+  MessageList
+} from './MessageModel';
