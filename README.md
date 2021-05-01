@@ -2,23 +2,36 @@
 
 React에서 쓸 수 있는 채팅 UI 컴포넌트입니다.
 
-개발중입니다.
+### Install
 
-npm에 업로드할 계획입니다.
+`npm install react-chatbot-ui`
 
-### 사용 전 준비사항
-
-`npm install <패키지 이름>`
-
+### Usage
 ```javascript
 ...
-import { ChatBotUI } from '<패키지 이름>';
+import { ChatBotUI } from 'react-chatbot-ui';
 ...
 
 ReactDOM.render(
   ...
-  <ChatBotUI />
+  <ChatBotUI messageList={[
+    {
+      mid: 1,
+      type: 'left',
+      text: 'asd'
+    }
+  ]}/>
   ...
 );
+```
 
+```ts
+// messageList의 Type
+export interface Message {
+  mid: number;
+  type: 'left' | 'right'; // left는 왼쪽 말풍선, right는 오른쪽 말풍선
+  text: string;
+}
+
+export type MessageList = Array<Message>;
 ```
