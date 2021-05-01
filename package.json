@@ -1,7 +1,9 @@
 {
   "name": "react-chatbot-ui",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.9a.1",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "@types/index.d.ts",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -22,7 +24,28 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "babel": "babel lib -d dist --copy-files && copy package.json dist && copy readme.md dist && copy @types\\index.d.ts dist"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./lib"
+          ],
+          "alias": {
+            "test": "./test",
+            "underscore": "lodash"
+          }
+        }
+      ]
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +64,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "@babel/preset-react": "^7.13.13",
+    "babel-plugin-module-resolver": "^4.1.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "styled-components": "^5.2.3"
   }
 }
