@@ -26,7 +26,7 @@ const StyledBalloonContainer = styled.article<StyleProps>`
   // 왼쪽 말풍선
   ${props => props.type === "left" &&
     css`
-      & div {
+      & ${StyledContent} {
         background-color: #567ace; // TODO: 변수 입력
       }
     `
@@ -36,7 +36,7 @@ const StyledBalloonContainer = styled.article<StyleProps>`
     css`
       text-align: -webkit-right;
       
-      & div {
+      & ${StyledContent} {
         background-color: #db706c; // TODO: 변수 입력
       }
     `
@@ -50,14 +50,12 @@ const StyledBalloonContainer = styled.article<StyleProps>`
   }
 `;
 
-
-  
 export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return useMemo(() => 
     <StyledBalloonContainer type={props.type} ref={ref}>
       <StyledContent>
         { props.image && <Image src={props.image} /> }
-        { props.text && <Text>{props.text}</Text> }
+        { props.text && <Text text={props.text} /> }
       </StyledContent>
     </StyledBalloonContainer>
   , [props.text, props.type, props.image, ref]); // ?: 로직상으로는 빈 배열 넣어도 됨, 다만 warning 발생함
