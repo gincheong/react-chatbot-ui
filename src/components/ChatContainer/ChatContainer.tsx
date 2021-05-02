@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Balloon } from 'components';
 import { Message, MessageList } from 'shared/models';
@@ -18,12 +18,11 @@ export const ChatContainer = (props: Props) => {
 
   const lastBalloon = useRef<HTMLDivElement>(null);
 
-  // const message = state.get('message');
-  // useEffect(() => {
-  //   if (message.size) {
-  //     lastBalloon.current.scrollIntoView({ behavior: 'auto' }); // ['auto', 'smooth']
-  //   }
-  // }, [message]);
+  useEffect(() => {
+    if (messageList.length) {
+      lastBalloon.current?.scrollIntoView({ behavior: 'auto' }); // ['auto', 'smooth']
+    }
+  }, [messageList]);
 
   return (
     <StyledChatContainer>
@@ -32,6 +31,7 @@ export const ChatContainer = (props: Props) => {
             key={each.mid}
             type={each.type}
             text={each.text}
+            image={each.image}
             ref={lastBalloon}
           />
         )

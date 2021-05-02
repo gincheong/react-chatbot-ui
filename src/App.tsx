@@ -23,7 +23,6 @@ export const App = (props: Props) => {
   return (
     <StyledApp width={props.width} height={props.height}>
         <ChatContainer messageList={props.messageList} />
-        {/* <InputBox /> */}
     </StyledApp>
   );
 };
