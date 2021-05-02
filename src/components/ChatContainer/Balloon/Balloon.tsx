@@ -1,6 +1,8 @@
 import React, { forwardRef, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import { Message, MessageWithImage, MessageWithText } from 'shared/models';
+import { Image } from './Image';
+import { Text } from './Text';
 
 interface StyleProps {
   type: Message['type'];
@@ -15,12 +17,6 @@ const StyledContent = styled.div`
   border: 1px solid transparent;
   border-radius: 0.5em;
   padding: 0.4em 0.5em;
-`;
-
-const StyledImage = styled.img`
-`;
-
-const StyledText = styled.span`
 `;
 
 const StyledBalloonContainer = styled.article<StyleProps>`
@@ -60,8 +56,8 @@ export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return useMemo(() => 
     <StyledBalloonContainer type={props.type} ref={ref}>
       <StyledContent>
-        { props.image && <StyledImage src={props.image} /> }
-        { props.text && <StyledText>{props.text}</StyledText> }
+        { props.image && <Image src={props.image} /> }
+        { props.text && <Text>{props.text}</Text> }
       </StyledContent>
     </StyledBalloonContainer>
   , [props.text, props.type, props.image, ref]); // ?: 로직상으로는 빈 배열 넣어도 됨, 다만 warning 발생함
