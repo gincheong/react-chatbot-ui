@@ -8,6 +8,7 @@ React에서 쓸 수 있는 채팅 UI 컴포넌트입니다.
 
 ### Usage
 ```javascript
+// Example
 ...
 import { ChatBotUI } from 'react-chatbot-ui';
 ...
@@ -19,6 +20,11 @@ ReactDOM.render(
       mid: 1,
       type: 'left',
       text: 'asd'
+    },
+    {
+      mid: 2,
+      type: 'right',
+      image: '<image_url>'
     }
   ]}/>
   ...
@@ -26,12 +32,21 @@ ReactDOM.render(
 ```
 
 ```ts
-// messageList의 Type
+// Type
 export interface Message {
   mid: number;
-  type: 'left' | 'right'; // left는 왼쪽 말풍선, right는 오른쪽 말풍선
-  text: string;
+  type: 'left' | 'right';
+  text?: string;
+  image?: string;
 }
 
 export type MessageList = Array<Message>;
 ```
+
+Descriptions of Types
+- **mid** : id of Message, should be unique (used in Key)
+- **type** : position of message balloon
+- **text** : text contents
+- **image** : image source
+
+`text` and `image` cannot be used together.
