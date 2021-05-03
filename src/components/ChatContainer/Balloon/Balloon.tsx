@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import { Message, MessageWithImage, MessageWithText } from 'shared/models';
 import { Image } from './Image';
-import { Text } from './Text';
+import { Text } from './Text/Text';
 
 interface StyleProps {
   type: Message['type'];
