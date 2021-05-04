@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import DOMPurify from 'dompurify';
-import { markdownParser, urlParser } from 'utils';
+import { markdownParser } from 'utils';
 
 interface Props {
   string: string;
@@ -20,14 +20,13 @@ const StyledSpan = styled.span`
 
 export const MsgParser = (props: Props) => {
   let parsed = props.string;
-  parsed = urlParser(parsed);
   parsed = markdownParser(parsed);
   parsed = DOMPurify.sanitize(parsed, { ADD_TAGS: ['url'] })
 
   const onClickUrl = (event: React.MouseEvent) => {
     const $target = event.target as HTMLElement;
     if ($target.tagName === 'URL') {
-      window.open($target.innerText);
+      window.open($target.dataset['url']);
     }
   };
 
