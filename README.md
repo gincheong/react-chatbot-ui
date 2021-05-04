@@ -43,10 +43,18 @@ export interface Message {
 export type MessageList = Array<Message>;
 ```
 
-Descriptions of Types
 - **mid** : id of Message, should be unique (used in Key)
 - **type** : position of message balloon
-- **text** : text contents
+- **text** : text contents (support html)
 - **image** : image source
 
 `text` and `image` cannot be used together.
+
+### Features
+- support some markdown syntax
+  - **bold** : `**bold**`
+  - *italic* : `*italic*`
+  - ~~strikethrough~~ : `~~strikethrough~~`
+  - __underline__ : `__underline__`
+  - `code` : ``` `code` ```
+  - [gincheong's github](https://github.com/gincheong) : `[gincheong's github](https://github.com/gincheong)`
