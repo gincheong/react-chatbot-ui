@@ -11,6 +11,15 @@ const StyledChatContainer = styled.section`
   flex: 1;
   background-color: #f2f2f2;
   overflow-y: scroll; // TODO: 스크롤 디자인 바꾸기 
+
+  &::-webkit-scrollbar {
+    width: 0.5em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1em;
+    background-color: #aaaaaa;
+  }
 `;
 
 export const ChatContainer = (props: Props) => {
