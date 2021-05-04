@@ -33,6 +33,11 @@ export const ChatContainer = (props: Props) => {
     }
   }, [messageList]);
 
+  const onLoadHandler = () => {
+    // load가 필요한 image 같은 것들에만 발생함
+    lastBalloon.current?.scrollIntoView({ behavior: 'auto' }); // ['auto', 'smooth']
+  };
+
   return (
     <StyledChatContainer>
       { messageList.map((each: Message) => 
@@ -42,6 +47,7 @@ export const ChatContainer = (props: Props) => {
             text={each.text}
             image={each.image}
             ref={lastBalloon}
+            onLoadHandler={onLoadHandler}
           />
         )
       }
