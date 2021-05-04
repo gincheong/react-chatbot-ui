@@ -19,7 +19,7 @@ ReactDOM.render(
     {
       mid: 1,
       type: 'left',
-      text: 'asd'
+      text: 'Hello world'
     },
     {
       mid: 2,
@@ -50,6 +50,8 @@ export type MessageList = Array<Message>;
 
 `text` and `image` cannot be used together.
 
+> you should use `immer.js` or `immutable.js` for **messageList**
+
 ### Features
 - support some markdown syntax
   - **bold** : `**bold**`
@@ -58,3 +60,4 @@ export type MessageList = Array<Message>;
   - __underline__ : `__underline__`
   - `code` : ``` `code` ```
   - [gincheong's github](https://github.com/gincheong) : `[gincheong's github](https://github.com/gincheong)`
+- enlarging image with click
