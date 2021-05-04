@@ -19,7 +19,7 @@ const StyledSpan = styled.span`
 `;
 
 export const MsgParser = (props: Props) => {
-  let parsed = props.string;
+  let parsed = props.string.trim();
   parsed = markdownParser(parsed);
   parsed = DOMPurify.sanitize(parsed, { ADD_TAGS: ['url'] })
 
