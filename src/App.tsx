@@ -1,18 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ChatContainer } from 'components';
-import { MessageList } from 'shared/models';
+import { ChatContainer, InputBox } from 'components';
+import { Config, MessageList } from 'shared/models';
+import { configContext } from 'context';
 
-interface StyleProps {
-  width?: number;
-  height?: number;
-}
-
-interface Props extends StyleProps {
+interface Props {
   messageList: MessageList;
+  config?: Config;
 }
 
-const StyledApp = styled.main<StyleProps>`
+const StyledApp = styled.main<Config>`
   width: ${props  => `${props.width ?? '400'}px` };
   height: ${props => `${props.height ?? '600'}px` };
   display: flex;
@@ -21,8 +18,13 @@ const StyledApp = styled.main<StyleProps>`
 
 export const App = (props: Props) => {
   return (
-    <StyledApp width={props.width} height={props.height}>
+    <configContext.Provider value={props.config ?? null}>
+      <StyledApp width={props.config?.width} height={props.config?.height}>
         <ChatContainer messageList={props.messageList} />
-    </StyledApp>
+        {props.config?.inputBox && 
+          <InputBox />
+        }
+      </StyledApp>
+    </configContext.Provider>
   );
 };
