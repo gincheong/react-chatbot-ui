@@ -2,6 +2,8 @@
 
 React에서 쓸 수 있는 채팅 UI 컴포넌트입니다.
 
+![image](https://user-images.githubusercontent.com/24225401/117090847-7551eb00-ad94-11eb-8a97-d8778781fac1.png)
+
 ### Install
 
 `npm install react-chatbot-ui`
