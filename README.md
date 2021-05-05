@@ -9,57 +9,71 @@ React에서 쓸 수 있는 채팅 UI 컴포넌트입니다.
 `npm install react-chatbot-ui`
 
 ### Usage
-```javascript
+```ts
 // Example
 ...
 import { ChatBotUI } from 'react-chatbot-ui';
 ...
 
-ReactDOM.render(
-  ...
-  <ChatBotUI messageList={[
-    {
-      mid: 1,
-      type: 'left',
-      text: 'Hello world'
-    },
-    {
-      mid: 2,
-      type: 'right',
-      image: '<image_url>'
-    }
-  ]}/>
+const config = {
+  width: 500,
+  height: 400,
+  inputBox: true, // this show InputBox
+  sendCallback: (value) => { // InputBox's value and Clicked Button values are passed into this function
+    console.log(`you typed(clicked) text(button) ${value}`);
+
+    // you can update "messageList" here with input values for new message
+  }
+};
+...
+
+  <ChatBotUI
+    config={config}
+    messageList={[
+      {
+        mid: 1,
+        type: 'left',
+        text: 'Hello world'
+      },
+      {
+        mid: 2,
+        type: 'right',
+        image: '<image_url>'
+      }
+    ]}
+  />
   ...
 );
 ```
 
 ```ts
 // Type
-export interface Message {
-  mid: number;
-  type: 'left' | 'right';
-  text?: string;
-  image?: string;
+ interface Message {
+  mid: number;                    // id of Message, should be unique (be used in react element's key)
+  type: 'left' | 'right';         // position of message balloon
+  text?: string;                  // text contents (support html)
+  image?: string;                 // image source
+  button?: Array<MessageButton>   // buttons
 }
 
-export type MessageList = Array<Message>;
+interface MessageButton {
+  name: string;
+  value: any;
+}
+
+type MessageList = Array<Message>;
 ```
-
-- **mid** : id of Message, should be unique (used in Key)
-- **type** : position of message balloon
-- **text** : text contents (support html)
-- **image** : image source
-
-`text` and `image` cannot be used together.
+`text`, `image` and `button` cannot be used together.
 
 > you should use `immer.js` or `immutable.js` for **messageList**
 
 ### Features
-- support some markdown syntax
+- Markdown Syntax
   - **bold** : `**bold**`
   - *italic* : `*italic*`
   - ~~strikethrough~~ : `~~strikethrough~~`
   - __underline__ : `__underline__`
   - `code` : ``` `code` ```
   - [gincheong's github](https://github.com/gincheong) : `[gincheong's github](https://github.com/gincheong)`
-- enlarging image with click
+
+- Enlarging image with click
