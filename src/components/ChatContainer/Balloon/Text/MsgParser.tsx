@@ -16,6 +16,11 @@ const StyledSpan = styled.span`
       color: #fcf695;
     }
   }
+
+  code {
+    background-color: rgba(100, 100, 100, 0.6);
+    padding: 0.2em;
+  }
 `;
 
 export const MsgParser = (props: Props) => {
