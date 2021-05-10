@@ -77,3 +77,7 @@ type MessageList = Array<Message>;
   - [gincheong's github](https://github.com/gincheong) : `[gincheong's github](https://github.com/gincheong)`
 
 - Enlarging image with click
+
+
+---
+[Version History](./version_history.md)
