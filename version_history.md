@@ -1,3 +1,8 @@
+# 0.2.2
+- update **README.md**
+- fix scripts command
+  - assets 폴더도 dist폴더에 복사함
+
 # 0.2.1
 - markdown `code` 에 배경색 추가
 - Button 컴포넌트 추가

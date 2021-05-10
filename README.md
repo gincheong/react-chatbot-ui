@@ -54,6 +54,7 @@ const config = {
   text?: string;                  // text contents (support html)
   image?: string;                 // image source
   button?: Array<MessageButton>   // buttons
+  youtube?: string;               // youtube video url
 }
 
 interface MessageButton {
@@ -63,7 +64,7 @@ interface MessageButton {
 
 type MessageList = Array<Message>;
 ```
-`text`, `image` and `button` cannot be used together.
+`text`, `image`, `button`, `youtube` cannot be used together.
 
 > you should use `immer.js` or `immutable.js` for **messageList**
 

@@ -1,6 +1,6 @@
 {
   "name": "react-chatbot-ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
   "main": "dist/index.js",
   "types": "@types/index.d.ts",
@@ -23,7 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "babel": "babel lib -d dist --copy-files && copy package.json dist && copy readme.md dist && copy @types\\index.d.ts dist"
+    "babel": "babel lib -d dist --copy-files && npm run copy-files",
+    "copy-files": "copy package.json dist && copy readme.md dist && copy @types\\index.d.ts dist && mkdir dist\\assets && copy src\\assets\\ dist\\assets"
   },
   "babel": {
     "presets": [
