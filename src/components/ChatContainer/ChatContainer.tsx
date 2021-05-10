@@ -47,6 +47,7 @@ export const ChatContainer = (props: Props) => {
             text={each.text}
             image={each.image}
             button={each.button}
+            youtube={each.youtube}
             ref={lastBalloon}
             onLoadHandler={onLoadHandler}
           />

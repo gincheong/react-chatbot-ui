@@ -1,18 +1,17 @@
 import React, { forwardRef, ReactEventHandler, useMemo } from 'react';
 import styled, { css } from 'styled-components';
-import { Message, MessageWithButton, MessageWithImage, MessageWithText } from 'shared/models';
-import { Image } from './Image';
-import { Text } from './Text/Text';
-import { Button } from './Button/Button';
+import { Message } from 'shared/models';
+import { Button, Image, Text, Youtube } from 'components';
 
 interface StyleProps {
   type: Message['type'];
 }
 
 interface Props extends StyleProps {
-  text?: MessageWithText['text'];
-  image?: MessageWithImage['image'];
-  button?: MessageWithButton['button'];
+  text?: Message['text'];
+  image?: Message['image'];
+  button?: Message['button'];
+  youtube?: Message['youtube'];
   onLoadHandler: ReactEventHandler<HTMLElement>;
 }
 
@@ -68,18 +67,19 @@ const StyledBalloonContainer = styled.article<StyleProps>`
 export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return useMemo(() => 
     <StyledBalloonContainer type={props.type} ref={ref} onLoad={props.onLoadHandler}>
-      { (props.image || props.text) &&
+      { (props.image || props.text || props.youtube) &&
         <StyledContent>
-          { props.image && <Image src={props.image} /> }
+          { props.image && <Image image={props.image} /> }
           { props.text && <Text text={props.text} /> }
+          { props.youtube && <Youtube youtube={props.youtube} /> }
         </StyledContent>
       }
       { props.button &&
         <StyledButtons>
-        { props.button && <Button button={props.button} /> }
+          <Button button={props.button} />
         </StyledButtons>
       }
     </StyledBalloonContainer>
-  , [props.text, props.type, props.image, props.button, props.onLoadHandler, ref]);
+  , [props.text, props.type, props.image, props.button, props.youtube, props.onLoadHandler, ref]);
   // ?: 로직상으로는 빈 배열 넣어도 됨, 다만 warning 발생함
 });
