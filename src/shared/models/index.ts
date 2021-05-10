@@ -3,6 +3,7 @@ export type {
   MessageWithImage,
   MessageWithText,
   MessageWithButton,
+  MessageWithYoutube,
   MessageList
 } from './MessageModel';
 
