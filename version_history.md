@@ -1,4 +1,4 @@
-# In Progress
+# 0.2.1
 - markdown `code` 에 배경색 추가
 - Button 컴포넌트 추가
   - `{ name: string, value: any }`
