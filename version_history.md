@@ -1,3 +1,8 @@
+# 0.2.3
+- babel 컴파일 시 assets폴더의 *.svg 파일들을 dist로 복사하게 명령어 수정
+- svg 파일 import하는 절대경로가 컴파일 후에 상대경로로 변하지 않는 문제로
+  assets 폴더에 index.ts를 만들어 이것을 통해 파일을 import함
+
 # 0.2.2
 - update **README.md**
 - fix scripts command

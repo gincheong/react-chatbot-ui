@@ -4,8 +4,7 @@ import { StyledImage } from '../Image/Image';
 import { Modal } from 'shared';
 import { MessageWithYoutube } from 'shared/models';
 import { youtubeVideoIdParser } from 'utils';
-import YoutubeIconHover from 'assets/YouTube_icon_full-color.svg';
-import YoutubeIcon from 'assets/YouTube_icon_light.svg';
+import { YoutubeIcon, YoutubeIconHover } from 'assets';
 
 interface Props {
   youtube: MessageWithYoutube['youtube'];
