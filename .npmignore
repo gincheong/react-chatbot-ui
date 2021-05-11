@@ -1,32 +1,35 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# By default, the following paths and files are ignored, so there's no need to add them to .npmignore explicitly:
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# .*.swp
+# ._*
+# .DS_Store
+# .git
+# .hg
+# .npmrc
+# .lock-wscript
+# .svn
+# .wafpickle-*
+# config.gypi
+# CVS
+# npm-debug.log
+# Additionally, everything in node_modules is ignored, except for bundled dependencies. npm automatically handles this for you, so don't bother adding node_modules to .npmignore.
 
-# testing
-/coverage
+# The following paths and files are never ignored, so adding them to .npmignore is pointless:
 
-# production
-/build
+# package.json
+# README (and its variants)
+# CHANGELOG (and its variants)
+# LICENSE / LICENCE
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.vscode/
+lib/
+node_modules/
+public/
+src/
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# additional
-src
-demo
-.babelrc
-webpack.config.js
-public
-env
-.vscode
+.env
+.gitignore
+package-lock.json
+tsconfig.json
+version_history.md
+yarn.lock
