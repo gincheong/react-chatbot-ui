@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactEventHandler, useMemo } from 'react';
+import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Message } from '@shared/models';
 import { Button, Image, Text, Youtube } from '@components';
@@ -12,7 +12,7 @@ interface Props extends StyleProps {
   image?: Message['image'];
   button?: Message['button'];
   youtube?: Message['youtube'];
-  onLoadHandler: ReactEventHandler<HTMLElement>;
+  onLoadHandler: Function;
 }
 
 const content = css`
@@ -65,21 +65,32 @@ const StyledBalloonContainer = styled.article<StyleProps>`
 `;
 
 export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
+  const [onLoaded, setOnLoaded] = useState(false);
+
+  const { type, image, text, youtube, button, onLoadHandler } = props;
+
+  const onLoad = useCallback(() => {
+    if (!onLoaded) {
+      // onLoaded State가 false일 때만 작동함
+      onLoadHandler(setOnLoaded); // 여기서 onLoaded를 true로 만듦
+    }
+  }, [onLoaded, onLoadHandler]);
+
   return useMemo(() => 
-    <StyledBalloonContainer type={props.type} ref={ref} onLoad={props.onLoadHandler}>
-      { (props.image || props.text || props.youtube) &&
+    <StyledBalloonContainer type={type} ref={ref}
+      onLoad={onLoad}>
+      { (image || text || youtube) &&
         <StyledContent>
-          { props.image && <Image image={props.image} /> }
-          { props.text && <Text text={props.text} /> }
-          { props.youtube && <Youtube youtube={props.youtube} /> }
+          { image && <Image image={image} /> }
+          { text && <Text text={text} /> }
+          { youtube && <Youtube youtube={youtube} /> }
         </StyledContent>
       }
-      { props.button &&
+      { button &&
         <StyledButtons>
-          <Button button={props.button} />
+          <Button button={button} />
         </StyledButtons>
       }
     </StyledBalloonContainer>
-  , [props.text, props.type, props.image, props.button, props.youtube, props.onLoadHandler, ref]);
-  // ?: 로직상으로는 빈 배열 넣어도 됨, 다만 warning 발생함
+  , [ref, onLoad, type, image, text, youtube, button]);
 });
