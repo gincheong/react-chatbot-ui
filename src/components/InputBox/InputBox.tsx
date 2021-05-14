@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { configContext } from 'context';
+import { configContext } from '@context';
 
 const StyledInput = styled.input`
   padding: 0.5em;

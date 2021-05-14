@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MsgParser } from './MsgParser';
-import { MessageWithText } from 'shared/models';
+import { MessageWithText } from '@shared/models';
 
 interface Props {
   text: MessageWithText['text'];

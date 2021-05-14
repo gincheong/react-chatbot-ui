@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Modal } from 'shared';
-import { MessageWithImage } from 'shared/models';
+import { Modal } from '@shared';
+import { MessageWithImage } from '@shared/models';
 
 interface Props {
   image: MessageWithImage['image'];

@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactEventHandler, useMemo } from 'react';
 import styled, { css } from 'styled-components';
-import { Message } from 'shared/models';
-import { Button, Image, Text, Youtube } from 'components';
+import { Message } from '@shared/models';
+import { Button, Image, Text, Youtube } from '@components';
 
 interface StyleProps {
   type: Message['type'];

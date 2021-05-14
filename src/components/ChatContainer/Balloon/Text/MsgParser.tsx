@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import DOMPurify from 'dompurify';
-import { markdownParser } from 'utils';
+import { markdownParser } from '@utils';
 
 interface Props {
   string: string;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { MessageWithButton } from 'shared/models';
-import { configContext } from 'context';
+import { MessageWithButton } from '@shared/models';
+import { configContext } from '@context';
 
 interface Props {
   button: MessageWithButton['button'];

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Balloon } from 'components';
-import { Message, MessageList } from 'shared/models';
+import { Balloon } from '@components';
+import { Message, MessageList } from '@shared/models';
 
 interface Props {
   messageList: MessageList;

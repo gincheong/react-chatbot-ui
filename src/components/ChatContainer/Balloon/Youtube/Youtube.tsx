@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { StyledImage } from '../Image/Image';
-import { Modal } from 'shared';
-import { MessageWithYoutube } from 'shared/models';
-import { youtubeVideoIdParser } from 'utils';
-import { YoutubeIcon, YoutubeIconHover } from 'assets';
+import { Modal } from '@shared';
+import { MessageWithYoutube } from '@shared/models';
+import { youtubeVideoIdParser } from '@utils';
+import { YoutubeIcon, YoutubeIconHover } from '@assets';
 
 interface Props {
   youtube: MessageWithYoutube['youtube'];
