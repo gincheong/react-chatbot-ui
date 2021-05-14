@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ChatContainer, InputBox } from 'components';
-import { Config, MessageList } from 'shared/models';
-import { configContext } from 'context';
+import { ChatContainer, InputBox } from '@components';
+import { Config, MessageList } from '@shared/models';
+import { configContext } from '@context';
 
 interface Props {
   messageList: MessageList;
@@ -10,8 +10,8 @@ interface Props {
 }
 
 const StyledApp = styled.main<Config>`
-  width: ${props  => `${props.width ?? '400'}px` };
-  height: ${props => `${props.height ?? '600'}px` };
+  width: ${props  => `${props.width ?? '400px'}` };
+  height: ${props => `${props.height ?? '600px'}` };
   display: flex;
   flex-direction: column;
 `;

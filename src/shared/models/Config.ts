@@ -1,6 +1,6 @@
 export interface Config {
-  width?: number;
-  height?: number;
+  width?: string;
+  height?: string;
   sendCallback?: Function;
   inputBox?: boolean;
 }
