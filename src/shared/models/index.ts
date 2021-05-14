@@ -2,6 +2,7 @@ export type {
   Message,
   MessageWithImage,
   MessageWithText,
+  MessageButton,
   MessageWithButton,
   MessageWithYoutube,
   MessageList

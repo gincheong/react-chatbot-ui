@@ -1,3 +1,4 @@
 import { App } from './App';
 
-export { App as ChatBotUI };
+export default App;
+export type { Message, MessageList, MessageButton } from '@shared/models';
