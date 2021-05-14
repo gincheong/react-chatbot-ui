@@ -1,3 +1,7 @@
+# 0.2.5
+- Balloon이 생성될 때, onload 이벤트로 autoscroll 할 때
+  image modal이나, Youtube Icon이 onload 이벤트를 발생시켜 scroll을 발생시키는 버그 수정
+
 # 0.2.4
 - `config`의 `width`, `height`를 **string**으로 입력받게 변경
 - interface `Message`, `MessageList`, `MessageButton`을 모듈 루트에서 import 할 수 있게 함
