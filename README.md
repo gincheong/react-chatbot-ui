@@ -1,8 +1,6 @@
 # React-Chatbot-UI
 
-React에서 쓸 수 있는 채팅 UI 컴포넌트입니다.
-
-![image](https://user-images.githubusercontent.com/24225401/117090847-7551eb00-ad94-11eb-8a97-d8778781fac1.png)
+![image](https://user-images.githubusercontent.com/24225401/118268949-09405700-b4f9-11eb-9b96-cc3acc3f35de.png)
 
 ### Install
 
@@ -12,35 +10,46 @@ React에서 쓸 수 있는 채팅 UI 컴포넌트입니다.
 ```ts
 // Example
 ...
-import { ChatBotUI } from 'react-chatbot-ui';
+import ChatBotUI, { MessageList } from 'react-chatbot-ui';
 ...
 
 const config = {
-  width: 500,
-  height: 400,
-  inputBox: true, // this show InputBox
-  sendCallback: (value) => { // InputBox's value and Clicked Button values are passed into this function
+  width: '500px',   // default: 400px
+  height: '400px',  // default: 600px
+  inputBox: true,   // show inputBox
+  sendCallback: (value) => {
+    // InputBox's value and Clicked Button values are passed into this function
     console.log(`you typed(clicked) text(button) ${value}`);
 
     // you can update "messageList" here with input values for new message
   }
 };
-...
 
+const messageList: MessageList = [
+  {
+    mid: 1,
+    type: 'left', 
+    text: 'Hello world'
+  },
+  {
+    mid: 2,
+    type: 'left', 
+    youtube: 'https://www.youtube.com/watch?v=eDEFolvLn0A'
+  },
+  {
+    mid: 3,
+    type: 'right', 
+    button: [
+      { name: 'displayName1', value: 'buttonValue1' },
+      { name: 'displayName2', value: 'buttonValue2' }
+    ]
+  },
+];
+
+  ...
   <ChatBotUI
     config={config}
-    messageList={[
-      {
-        mid: 1,
-        type: 'left',
-        text: 'Hello world'
-      },
-      {
-        mid: 2,
-        type: 'right',
-        image: '<image_url>'
-      }
-    ]}
+    messageList={messageList}
   />
   ...
 );
@@ -49,7 +58,8 @@ const config = {
 ```ts
 // Type
  interface Message {
-  mid: number;                    // id of Message, should be unique (be used in react element's key)
+  mid: number;                    // id of Message, should be unique
+                                  // (be used in react element's key)
   type: 'left' | 'right';         // position of message balloon
   text?: string;                  // text contents (support html)
   image?: string;                 // image source
@@ -66,7 +76,7 @@ type MessageList = Array<Message>;
 ```
 `text`, `image`, `button`, `youtube` cannot be used together.
 
-> you should use `immer.js` or `immutable.js` for **messageList**
+> you should use `immer.js` or `immutable.js` for **MessageList**
 
 ### Features
 - Markdown Syntax
@@ -79,6 +89,8 @@ type MessageList = Array<Message>;
 
 - Enlarging image with click
 
+- Support Youtube video url
+  - click to show youtube video player
 
 ---
 [Version History](./version_history.md)
