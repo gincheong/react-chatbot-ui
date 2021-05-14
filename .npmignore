@@ -24,12 +24,15 @@
 .vscode/
 lib/
 node_modules/
+npm-scripts/
 public/
 src/
 
 .env
 .gitignore
+craco.config.js
 package-lock.json
 tsconfig.json
+tsconfig.paths.json
 version_history.md
 yarn.lock
