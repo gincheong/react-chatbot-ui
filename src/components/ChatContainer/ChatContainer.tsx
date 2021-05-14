@@ -33,9 +33,10 @@ export const ChatContainer = (props: Props) => {
     }
   }, [messageList]);
 
-  const onLoadHandler = () => {
+  const onLoadHandler = (setOnLoaded: Function) => {
     // load가 필요한 image 같은 것들에만 발생함
     lastBalloon.current?.scrollIntoView({ behavior: 'auto' }); // ['auto', 'smooth']
+    setOnLoaded(true); // 한 번 scroll 하고 나면, 해당 Balloon을 대상으로는 다시 scroll 하지 않음
   };
 
   return (
