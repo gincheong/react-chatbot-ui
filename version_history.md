@@ -1,3 +1,7 @@
+# 0.2.4
+- `config`의 `width`, `height`를 **string**으로 입력받게 변경
+- interface `Message`, `MessageList`, `MessageButton`을 모듈 루트에서 import 할 수 있게 함
+
 # 0.2.3
 - babel 컴파일 시 assets폴더의 *.svg 파일들을 dist로 복사하게 명령어 수정
 - svg 파일 import하는 절대경로가 컴파일 후에 상대경로로 변하지 않는 문제로
