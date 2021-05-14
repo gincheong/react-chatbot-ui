@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+    "paths":{
+      "@components": ["./src/components"],
+      "@context": ["./src/context"],
+      "@shared": ["./src/shared"],
+      "@shared/models": ["./src/shared/models"],
+      "@utils": ["./src/utils"],
+      "@assets": ["./src/assets"]
+    }
+  }
+}
