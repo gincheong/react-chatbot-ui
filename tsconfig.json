@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.paths.json",
   "compilerOptions": {
-    "target": "es6",
-    "outDir": "lib",
+    "target": "es5",
+    "outDir": "dist",
     "lib": [
       "dom",
       "dom.iterable"
@@ -14,19 +14,13 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "declaration": true,
-    "baseUrl": ".",
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths",
-        "afterDeclarations": true
-      }
-    ],
+    "baseUrl": "."
   },
   "include": [
     "src",

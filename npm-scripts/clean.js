@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const PATHS = {
-  lib: './lib',
+  // lib: './lib',
   dist: './dist'
 };
 

@@ -27,33 +27,7 @@
     "eject": "react-scripts eject",
     "clean": "node ./npm-scripts/clean.js",
     "copy-files": "node ./npm-scripts/copy-files.js",
-    "tsc": "npm run clean lib && npx ttsc && npm run copy-files",
-    "babel": "npm run clean dist && babel lib -d dist --copy-files",
-    "build": "npm run tsc && npm run babel"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      [
-        "module-resolver",
-        {
-          "root": [
-            "./lib"
-          ],
-          "alias": {
-            "@components": "./dist/components",
-            "@context": "./dist/context",
-            "@shared": "./dist/shared",
-            "@shared/models": "./dist/shared/models",
-            "@utils": "./dist/utils",
-            "@assets": "./dist/assets"
-          }
-        }
-      ]
-    ]
+    "build": "npm run clean dist && tsc && npx tsc-alias && npm run copy-files"
   },
   "eslintConfig": {
     "extends": [
@@ -74,16 +48,10 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.0",
-    "@babel/preset-react": "^7.13.13",
     "@craco/craco": "^6.1.2",
-    "babel-plugin-module-resolver": "^4.1.0",
     "craco-alias": "^3.0.0",
     "immer": "^9.0.2",
-    "ttypescript": "^1.5.12",
-    "typescript-transform-paths": "^2.2.3"
+    "tsc-alias": "^1.2.10"
   },
   "peerDependencies": {
     "react": "^17.0.2",
