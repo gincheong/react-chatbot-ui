@@ -10,19 +10,25 @@
 ```ts
 // Example
 ...
-import ChatBotUI, { MessageList } from 'react-chatbot-ui';
+import ChatBotUI, { MessageList, ButtonInput, TextInput } from 'react-chatbot-ui';
 ...
 
 const config = {
   width: '500px',   // default: 400px
   height: '400px',  // default: 600px
   inputBox: true,   // show inputBox
-  sendCallback: (value) => {
+  sendCallback: (value: TextInput) => {
+    // TextInput { payload: string }
+    
     // InputBox's value and Clicked Button values are passed into this function
     console.log(`you typed(clicked) text(button) ${value}`);
 
     // you can update "messageList" here with input values for new message
-  }
+  },
+  buttonCallback: (value: ButtonInput) => {
+    // ButtonInput { payload: MessageButton }
+    console.log('button clicked', value);
+  },
 };
 
 const messageList: MessageList = [

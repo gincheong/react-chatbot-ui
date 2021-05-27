@@ -1,3 +1,10 @@
+# 0.3.1
+- readme 업데이트 깜빡했음..
+
+# 0.3.0
+- sendCallback 함수 파라미터 타입을 object로 변경(type UserInput) (#17)
+- MessageButton의 value를 객체로 입력할 수 있게 변경
+
 # 0.2.5
 - Balloon이 생성될 때, onload 이벤트로 autoscroll 할 때
   image modal이나, Youtube Icon이 onload 이벤트를 발생시켜 scroll을 발생시키는 버그 수정
