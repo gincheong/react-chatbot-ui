@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { MessageWithButton, ButtonInput, Message } from '@shared/models';
+import { MessageWithButton, ButtonInput } from '@shared/models';
 import { configContext } from '@context';
 
 interface Props {
