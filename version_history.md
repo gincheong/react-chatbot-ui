@@ -1,3 +1,8 @@
+# ~
+- Spinner 추가, 이미지 로드 중에 Spinner 컴포넌트가 표시됩니다.
+  (현재 이미지가 없이 "Loading Image" 텍스트만 표시함)
+- 자바스크립트 내장 객체 Image와 이름이 겹치는 Image 컴포넌트의 이름을 ImageContent로 바꿈
+
 # 0.3.1
 - readme 업데이트 깜빡했음..
 

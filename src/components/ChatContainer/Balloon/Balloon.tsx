@@ -1,7 +1,8 @@
 import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Message } from '@shared/models';
-import { Button, Image, Text, Youtube } from '@components';
+import { Spinner } from '@shared';
+import { Button, ImageContent, Text, Youtube } from '@components';
 
 interface StyleProps {
   type: Message['type'];
@@ -74,15 +75,20 @@ export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
       // onLoaded State가 false일 때만 작동함
       onLoadHandler(setOnLoaded); // 여기서 onLoaded를 true로 만듦
     }
-  }, [onLoaded, onLoadHandler]);
+  }, [onLoaded, onLoadHandler]); 
 
   return useMemo(() => 
-    <StyledBalloonContainer type={type} ref={ref}
-      onLoad={onLoad}>
-      { (image || text || youtube) &&
+    <StyledBalloonContainer type={type} ref={ref} onLoad={onLoad}>
+      { text && 
         <StyledContent>
-          { image && <Image image={image} /> }
           { text && <Text text={text} /> }
+        </StyledContent>
+      }
+      { (image || youtube) &&
+        // <StyledContent style={{ display: `${!onLoaded ? 'none' : ''}` }}>
+        <StyledContent>
+          { !onLoaded && <Spinner /> }
+          { image && <ImageContent image={image} /> }
           { youtube && <Youtube youtube={youtube} /> }
         </StyledContent>
       }
@@ -92,5 +98,6 @@ export const Balloon = forwardRef<HTMLDivElement, Props>((props, ref) => {
         </StyledButtons>
       }
     </StyledBalloonContainer>
-  , [ref, onLoad, type, image, text, youtube, button]);
+  , [ref, type, image, text, youtube, button, onLoaded]); // eslint-disable-line react-hooks/exhaustive-deps
+  // ! onLoad 넣으면 Ballon들이 불필요하게 re-rendering됨
 });
