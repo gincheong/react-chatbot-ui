@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import { StyledImage } from '../Image/Image';
+import { StyledImageContent } from '../ImageContent/ImageContent';
 import { Modal } from '@shared';
 import { MessageWithYoutube } from '@shared/models';
 import { youtubeVideoIdParser } from '@utils';
@@ -61,7 +61,7 @@ export const Youtube = (props: Props) => {
         onMouseLeave={onMouseEventListener}
       >
         <StyledYoutubeIcon src={YoutubeIcon} ref={youtubeIconRef}/>
-        <StyledImage src={thumbnailUrl} />
+        <StyledImageContent src={thumbnailUrl} />
       </StyledYoutube>
       <Modal state={[displayModal, setDisplayModal]}>
         <StyledModalYoutube
