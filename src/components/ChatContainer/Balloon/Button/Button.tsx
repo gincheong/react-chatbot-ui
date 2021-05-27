@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { MessageWithButton } from '@shared/models';
+import { MessageWithButton, ButtonInput, Message } from '@shared/models';
 import { configContext } from '@context';
 
 interface Props {
@@ -24,18 +24,24 @@ const StyledButton = styled.button`
 
 export const Button = (props: Props) => {
   const config = useContext(configContext);
+  const [buttons, ] = useState(props.button);
 
   const onClick = (event: React.MouseEvent) => {
-    const $target = event.target as HTMLElement;
-    if (config?.sendCallback) {
-      config.sendCallback($target.dataset['value']);
+    const $target = event.target as HTMLButtonElement;
+    const idx = parseInt($target.dataset['index'] ?? '-1');
+    
+    if (config?.buttonCallback) {
+      const buttonInput: ButtonInput = {
+        payload: buttons[idx]
+      };
+      config.buttonCallback(buttonInput);
     }
   };
 
   return (
     <>
-      {props.button.map(each => 
-        <StyledButton key={each.name} type="button" data-value={each.value} onClick={onClick}>
+      {buttons.map((each, idx) => 
+        <StyledButton key={each.name} type="button" onClick={onClick} data-index={idx}>
           {each.name}
         </StyledButton>
       )}

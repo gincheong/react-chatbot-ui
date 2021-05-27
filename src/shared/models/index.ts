@@ -6,7 +6,12 @@ export type {
   MessageWithButton,
   MessageWithYoutube,
   MessageList
-} from './MessageModel';
+} from './Message';
+
+export type {
+  TextInput,
+  ButtonInput,
+} from './Inputs';
 
 export type { 
   Config
