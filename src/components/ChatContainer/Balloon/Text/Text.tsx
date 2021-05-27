@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { MsgParser } from './MsgParser';
 import { MessageWithText } from '@shared/models';
@@ -12,9 +12,9 @@ const StyledText = styled.div`
 `;
 
 export const Text = (props: Props) => {
-  return (
+  return useMemo(() => (
     <StyledText>
       <MsgParser string={props.text} />
     </StyledText>
-  );
+  ), [props.text]);
 };

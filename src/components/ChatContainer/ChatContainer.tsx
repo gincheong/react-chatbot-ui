@@ -28,9 +28,8 @@ export const ChatContainer = (props: Props) => {
   const lastBalloon = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (messageList.length) {
-      lastBalloon.current?.scrollIntoView({ behavior: 'auto' }); // ['auto', 'smooth']
-    }
+    // messageList가 immutable해야 올바르게 작동함
+    lastBalloon.current?.scrollIntoView({ behavior: 'auto' }); // ['auto', 'smooth']
   }, [messageList]);
 
   const onLoadHandler = (setOnLoaded: Function) => {
